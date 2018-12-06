@@ -12,7 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FunApp.Web.Models;
-using FunApp.Web.Areas.Identity.Data;
+using FunApp.Data.Models;
+using FunApp.Data;
 
 namespace FunApp.Web
 {
