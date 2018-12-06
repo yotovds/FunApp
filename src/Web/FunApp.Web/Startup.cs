@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore;
 using FunApp.Web.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using FunApp.Web.Models;
+using FunApp.Web.Areas.Identity.Data;
 
 namespace FunApp.Web
 {
@@ -34,11 +36,12 @@ namespace FunApp.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDbContext<FunAppContext>(options =>
+                    options.UseSqlServer(
+                        this.Configuration.GetConnectionString("FunAppContextConnection")));
+
+            services.AddDefaultIdentity<FunAppUser>()
+                .AddEntityFrameworkStores<FunAppContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
