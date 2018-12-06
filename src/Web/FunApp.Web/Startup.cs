@@ -38,7 +38,7 @@ namespace FunApp.Web
 
             services.AddDbContext<FunAppContext>(options =>
                     options.UseSqlServer(
-                        this.Configuration.GetConnectionString("FunAppContextConnection")));
+                        this.Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<FunAppUser>()
                 .AddEntityFrameworkStores<FunAppContext>();
