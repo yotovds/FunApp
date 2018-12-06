@@ -40,7 +40,16 @@ namespace FunApp.Web
                     options.UseSqlServer(
                         this.Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<FunAppUser>()
+            services.AddDefaultIdentity<FunAppUser>( options =>
+            {
+                options.SignIn.RequireConfirmedEmail = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequiredUniqueChars = 0;
+                options.Password.RequiredLength = 3;
+            })
                 .AddEntityFrameworkStores<FunAppContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
