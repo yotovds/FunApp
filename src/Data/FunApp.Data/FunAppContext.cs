@@ -10,11 +10,15 @@ using Microsoft.EntityFrameworkCore;
 namespace FunApp.Data
 {
     public class FunAppContext : IdentityDbContext<FunAppUser>
-    {
+    {        
         public FunAppContext(DbContextOptions<FunAppContext> options)
             : base(options)
         {
         }
+
+        public DbSet<Joke> Jokes { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -5,17 +5,19 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{85A52453-4DA9-4B32-A76C-30D3B34E6F94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Web", "Web\FunApp.Web\FunApp.Web.csproj", "{FAA85426-7544-415F-BE59-38EC4BD29D3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Web", "Web\FunApp.Web\FunApp.Web.csproj", "{FAA85426-7544-415F-BE59-38EC4BD29D3C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{489B9DD3-1BB1-45CC-AAFB-E43A637B644B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Data", "Data\FunApp.Data\FunApp.Data.csproj", "{7336CA8B-5C89-4866-B6DF-D24FC2B6E353}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Data", "Data\FunApp.Data\FunApp.Data.csproj", "{7336CA8B-5C89-4866-B6DF-D24FC2B6E353}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Data.Models", "Data\FunApp.Data.Models\FunApp.Data.Models.csproj", "{3C09B5A8-F4C3-4F21-8427-C891F203AA0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Data.Models", "Data\FunApp.Data.Models\FunApp.Data.Models.csproj", "{3C09B5A8-F4C3-4F21-8427-C891F203AA0D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{06AAF4F3-6A96-4DE7-87A6-8B4E2C802831}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Test\Sandbox\Sandbox.csproj", "{B1DD1F31-B807-4864-8641-D2BD2683CF36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox", "Test\Sandbox\Sandbox.csproj", "{B1DD1F31-B807-4864-8641-D2BD2683CF36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Data.Common", "Data\FunApp.Data.Common\FunApp.Data.Common.csproj", "{6125A0CD-D711-4FCF-901F-4562780882FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B1DD1F31-B807-4864-8641-D2BD2683CF36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1DD1F31-B807-4864-8641-D2BD2683CF36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1DD1F31-B807-4864-8641-D2BD2683CF36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6125A0CD-D711-4FCF-901F-4562780882FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6125A0CD-D711-4FCF-901F-4562780882FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6125A0CD-D711-4FCF-901F-4562780882FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6125A0CD-D711-4FCF-901F-4562780882FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{7336CA8B-5C89-4866-B6DF-D24FC2B6E353} = {489B9DD3-1BB1-45CC-AAFB-E43A637B644B}
 		{3C09B5A8-F4C3-4F21-8427-C891F203AA0D} = {489B9DD3-1BB1-45CC-AAFB-E43A637B644B}
 		{B1DD1F31-B807-4864-8641-D2BD2683CF36} = {06AAF4F3-6A96-4DE7-87A6-8B4E2C802831}
+		{6125A0CD-D711-4FCF-901F-4562780882FC} = {489B9DD3-1BB1-45CC-AAFB-E43A637B644B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19478727-852A-4B00-A519-2A559CEEC326}
