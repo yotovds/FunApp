@@ -4,10 +4,10 @@ using System.Text;
 
 namespace FunApp.Services.Models.Jokes
 {
-    public class CreateJokeInputModel
+    public class JokeDetailsViewModel
     {
         public string Content { get; set; }
 
-        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
     }
 }

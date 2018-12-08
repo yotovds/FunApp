@@ -1,6 +1,6 @@
 ﻿using FunApp.Services.DataServices;
 using FunApp.Services.Models;
-using FunApp.Services.Models.Jokes;
+using FunApp.Web.Models.Jokes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -13,10 +13,10 @@ namespace FunApp.Web.Controllers
 {
     public class JokesController : BaseController
     {
-        private readonly ICategoriesServices categoriesServices;
+        private readonly ICategoriesService categoriesServices;
         private readonly IJokeService jokeService;
 
-        public JokesController(ICategoriesServices categoriesServices, IJokeService jokeService)
+        public JokesController(ICategoriesService categoriesServices, IJokeService jokeService)
         {
             this.categoriesServices = categoriesServices;
             this.jokeService = jokeService;
@@ -37,14 +37,23 @@ namespace FunApp.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(CreateJokeInputModel input)
+        public async Task<IActionResult> Create(CreateJokeInputModel input)
         {
-            return this.RedirectToAction("View", new {id = 0});
+            if (this.ModelState.IsValid == false)
+            {
+                return this.View(input);
+            }
+
+            var categoryId = await this.jokeService.Create(input.CategoryId, input.Content);
+
+            return this.RedirectToAction("Details", new { id = categoryId });
         }
 
         public IActionResult Details(int id)
         {
-            return this.View();
+            var joke = this.jokeService.GetJokeById(id);
+
+            return this.View(joke);
         }
     }
 }

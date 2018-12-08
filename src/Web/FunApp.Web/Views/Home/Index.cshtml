@@ -7,13 +7,16 @@
 <div class="row">
     @foreach (var joke in Model.Jokes)
     {
-    <div class="col-md-4">
-        <div class="panel panel-default clearfix">
-            <div class="panel-body">
-                @joke.Content
+        <div class="col-md-4">
+            <div class="panel panel-default clearfix">
+                <div class="panel-body">
+                    @joke.Content
+                </div>
+                <div class="panel-footer">
+                    @joke.CategoryName
+                    <a asp-controller="Jokes" asp-action="Details" asp-route-id="@joke.Id" class="btn bnt-default">View</a>
+                </div>
             </div>
-            <div class="panel-footer">@joke.CategoryName</div>
         </div>
-    </div>
     }
 </div>
