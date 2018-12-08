@@ -1,7 +1,8 @@
 ﻿using FunApp.Data.Common;
 using FunApp.Data.Models;
+using FunApp.Services.DataServices;
+using FunApp.Services.Models;
 using FunApp.Web.Models;
-using FunApp.Web.Models.Home;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Diagnostics;
@@ -11,24 +12,16 @@ namespace FunApp.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IRepository<Joke> jokesRepository;
+        private readonly IJokeService jokeService;
 
-        public HomeController(IRepository<Joke> jokesRepository)
+        public HomeController(IJokeService jokeService)
         {
-            this.jokesRepository = jokesRepository;
+            this.jokeService = jokeService;
         }
 
         public IActionResult Index()
         {
-            var jokes = this.jokesRepository                
-                .All()
-                .OrderBy(x => Guid.NewGuid()) // randon ordering
-                .Select(j => new IndexJokeViewModel
-                {
-                    Content = j.Content,
-                    CategoryName = j.Category.Name
-                })
-                .Take(20);
+            var jokes = this.jokeService.GetRandomJokes(20);
 
             var viewModel = new IndexViewModel
             {
@@ -40,7 +33,7 @@ namespace FunApp.Web.Controllers
 
         public IActionResult About()
         {
-            this.ViewData["Message"] = $"My application has {this.jokesRepository.All().Count()} jokes.";
+            this.ViewData["Message"] = $"My application has {this.jokeService.GetCount()} jokes.";
 
             return this.View();
         }
