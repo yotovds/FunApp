@@ -1,6 +1,7 @@
 ﻿using FunApp.Data.Common;
 using FunApp.Data.Models;
 using FunApp.Services.Models;
+using FunApp.Services.Models.Home;
 using System;
 using System.Collections.Generic;
 using System.Linq;

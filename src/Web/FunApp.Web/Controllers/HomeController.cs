@@ -2,6 +2,7 @@
 using FunApp.Data.Models;
 using FunApp.Services.DataServices;
 using FunApp.Services.Models;
+using FunApp.Services.Models.Home;
 using FunApp.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,7 +11,7 @@ using System.Linq;
 
 namespace FunApp.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly IJokeService jokeService;
 
@@ -34,13 +35,6 @@ namespace FunApp.Web.Controllers
         public IActionResult About()
         {
             this.ViewData["Message"] = $"My application has {this.jokeService.GetCount()} jokes.";
-
-            return this.View();
-        }
-
-        public IActionResult Contact()
-        {
-            this.ViewData["Message"] = "Your contact page.";
 
             return this.View();
         }

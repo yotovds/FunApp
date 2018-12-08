@@ -1,5 +1,6 @@
 ﻿using FunApp.Data.Models;
 using FunApp.Services.Models;
+using FunApp.Services.Models.Home;
 using System.Collections.Generic;
 
 namespace FunApp.Services.DataServices

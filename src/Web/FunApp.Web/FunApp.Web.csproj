@@ -18,4 +18,10 @@
     <ProjectReference Include="..\..\Services\FunApp.Services.Models\FunApp.Services.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Jokes\Details.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
 </Project>
