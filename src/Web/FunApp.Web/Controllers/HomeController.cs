@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using FunApp.Data.Common;
+using FunApp.Data.Models;
+using FunApp.Web.Models;
+using FunApp.Web.Models.Home;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using FunApp.Web.Models;
-using FunApp.Data.Common;
-using FunApp.Data.Models;
 
 namespace FunApp.Web.Controllers
 {
@@ -21,32 +20,47 @@ namespace FunApp.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var jokes = this.jokesRepository                
+                .All()
+                .OrderBy(x => Guid.NewGuid()) // randon ordering
+                .Select(j => new IndexJokeViewModel
+                {
+                    Content = j.Content,
+                    CategoryName = j.Category.Name
+                })
+                .Take(20);
+
+            var viewModel = new IndexViewModel
+            {
+                Jokes = jokes
+            };
+
+            return this.View(viewModel);
         }
 
         public IActionResult About()
         {
-            ViewData["Message"] = $"My application has {this.jokesRepository.All().Count()} jokes.";
+            this.ViewData["Message"] = $"My application has {this.jokesRepository.All().Count()} jokes.";
 
-            return View();
+            return this.View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            this.ViewData["Message"] = "Your contact page.";
 
-            return View();
+            return this.View();
         }
 
         public IActionResult Privacy()
         {
-            return View();
+            return this.View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return this.View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
         }
     }
 }
