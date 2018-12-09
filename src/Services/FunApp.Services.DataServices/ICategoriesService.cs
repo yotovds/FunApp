@@ -1,4 +1,5 @@
 ﻿using FunApp.Services.Models;
+using FunApp.Services.Models.Categories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +9,7 @@ namespace FunApp.Services.DataServices
 {
     public interface ICategoriesService
     {
-        IEnumerable<IdAndNameViewModel> GetAll();
+        IEnumerable<CategoryIdAndNameViewModel> GetAll();
 
         bool IsCategoryIdValid(int categoryId);
     }

@@ -1,5 +1,6 @@
 ﻿using FunApp.Data.Common;
 using FunApp.Data.Models;
+using FunApp.Services.Mapping;
 using FunApp.Services.Models.Home;
 using FunApp.Services.Models.Jokes;
 using System;
@@ -22,15 +23,22 @@ namespace FunApp.Services.DataServices
 
         public IEnumerable<IndexJokeViewModel> GetRandomJokes(int count)
         {
+            //var jokes = this.jokesRepository
+            //    .All()
+            //    .OrderBy(x => Guid.NewGuid()) // randon ordering
+            //    .Select(j => new IndexJokeViewModel
+            //    {
+            //        Id = j.Id,
+            //        Content = j.Content,
+            //        CategoryName = j.Category.Name
+            //    })
+            //    .Take(count)
+            //    .ToList();
+
             var jokes = this.jokesRepository
                 .All()
                 .OrderBy(x => Guid.NewGuid()) // randon ordering
-                .Select(j => new IndexJokeViewModel
-                {
-                    Id = j.Id,
-                    Content = j.Content,
-                    CategoryName = j.Category.Name
-                })
+                .To<IndexJokeViewModel>()
                 .Take(count)
                 .ToList();
 
@@ -61,11 +69,7 @@ namespace FunApp.Services.DataServices
             var joke = this.jokesRepository
                 .All()
                 .Where(j => j.Id == jokeId)
-                .Select(j => new JokeDetailsViewModel
-                {
-                    Content = j.Content,
-                    CategoryName = j.Category.Name
-                })
+                .To<JokeDetailsViewModel>()
                 .FirstOrDefault();
 
             return joke;

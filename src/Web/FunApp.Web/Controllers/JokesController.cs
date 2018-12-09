@@ -30,7 +30,7 @@ namespace FunApp.Web.Controllers
                 .Select(c => new SelectListItem
                     {
                         Value = c.Id.ToString(),
-                        Text = c.Name
+                        Text = c.NameAndCount
                     });
 
             return this.View();
