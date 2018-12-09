@@ -60,12 +60,21 @@ namespace FunApp.Web.Controllers
             return this.View(joke);
         }
         [HttpPost]
-        public string SuggestCategory(string joke)
+        public SuggestCategoryResult SuggestCategory(string joke)
         {
             var category = this.jokesCategorizer
                 .Categorize("MlModels/JokesCategoryModel.zip", joke);
 
-            return category;
+            var categoryId = this.categoriesServices.GetCategoryId(category);
+
+            return new SuggestCategoryResult { CategoryId = categoryId ?? 0, CategoryName = category };
         }
+    }
+
+    public class SuggestCategoryResult
+    {
+        public int CategoryId { get; set; }
+
+        public string CategoryName { get; set; }
     }
 }
