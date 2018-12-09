@@ -15,6 +15,6 @@ namespace FunApp.Services.DataServices
 
         Task<int> Create(int categoryId, string jokeContent);
 
-        JokeDetailsViewModel GetJokeById(int jokeId);
+        TViewModel GetJokeById<TViewModel>(int jokeId);
     }
 }

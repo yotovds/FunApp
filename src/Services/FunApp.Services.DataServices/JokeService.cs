@@ -64,12 +64,12 @@ namespace FunApp.Services.DataServices
             return joke.Id;
         }
 
-        public JokeDetailsViewModel GetJokeById(int jokeId)
+        public TViewModel GetJokeById<TViewModel>(int jokeId)
         {
             var joke = this.jokesRepository
                 .All()
                 .Where(j => j.Id == jokeId)
-                .To<JokeDetailsViewModel>()
+                .To<TViewModel>()
                 .FirstOrDefault();
 
             return joke;
