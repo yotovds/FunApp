@@ -1,4 +1,5 @@
 ﻿using FunApp.Services.DataServices;
+using FunApp.Services.MachineLearning;
 using FunApp.Services.Models;
 using FunApp.Services.Models.Jokes;
 using FunApp.Web.Models.Jokes;
@@ -16,11 +17,13 @@ namespace FunApp.Web.Controllers
     {
         private readonly ICategoriesService categoriesServices;
         private readonly IJokeService jokeService;
+        private readonly IJokesCategorizer jokesCategorizer;
 
-        public JokesController(ICategoriesService categoriesServices, IJokeService jokeService)
+        public JokesController(ICategoriesService categoriesServices, IJokeService jokeService, IJokesCategorizer jokesCategorizer)
         {
             this.categoriesServices = categoriesServices;
             this.jokeService = jokeService;
+            this.jokesCategorizer = jokesCategorizer;
         }
 
         [Authorize]
@@ -55,6 +58,14 @@ namespace FunApp.Web.Controllers
             var joke = this.jokeService.GetJokeById<JokeDetailsViewModel>(id);
 
             return this.View(joke);
+        }
+        [HttpPost]
+        public string SuggestCategory(string joke)
+        {
+            var category = this.jokesCategorizer
+                .Categorize("MlModels/JokesCategoryModel.zip", joke);
+
+            return category;
         }
     }
 }
