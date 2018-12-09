@@ -12,7 +12,5 @@ namespace FunApp.Services.DataServices
         IEnumerable<CategoryIdAndNameViewModel> GetAll();
 
         bool IsCategoryIdValid(int categoryId);
-
-        int? GetCategoryId(string name);
     }
 }
