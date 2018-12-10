@@ -25,9 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Services.DataService
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Services.Models", "Services\FunApp.Services.Models\FunApp.Services.Models.csproj", "{47325AA5-FC83-4FB3-AA77-08D005529B69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Services.Mapping", "Services\FunApp.Services.Mapping\FunApp.Services.Mapping.csproj", "{7034B5FB-DDF3-461E-9E6B-F3584D8977A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Services.Mapping", "Services\FunApp.Services.Mapping\FunApp.Services.Mapping.csproj", "{7034B5FB-DDF3-461E-9E6B-F3584D8977A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Services.MachineLearning", "Services\FunApp.Services.MachineLearning\FunApp.Services.MachineLearning.csproj", "{2B91BB85-B94F-494F-B45D-2A50E8EF0126}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunApp.Services.MachineLearning", "Services\FunApp.Services.MachineLearning\FunApp.Services.MachineLearning.csproj", "{2B91BB85-B94F-494F-B45D-2A50E8EF0126}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunApp.Services.DataServices.Tests", "Test\FunApp.Services.DataServices.Tests\FunApp.Services.DataServices.Tests.csproj", "{D3C3126B-4871-49D1-891F-9DE00A2B61D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{2B91BB85-B94F-494F-B45D-2A50E8EF0126}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B91BB85-B94F-494F-B45D-2A50E8EF0126}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B91BB85-B94F-494F-B45D-2A50E8EF0126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3C3126B-4871-49D1-891F-9DE00A2B61D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3C3126B-4871-49D1-891F-9DE00A2B61D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3C3126B-4871-49D1-891F-9DE00A2B61D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3C3126B-4871-49D1-891F-9DE00A2B61D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +91,7 @@ Global
 		{47325AA5-FC83-4FB3-AA77-08D005529B69} = {1B4375F7-AF67-4192-B94A-EB11AB954BF7}
 		{7034B5FB-DDF3-461E-9E6B-F3584D8977A4} = {1B4375F7-AF67-4192-B94A-EB11AB954BF7}
 		{2B91BB85-B94F-494F-B45D-2A50E8EF0126} = {1B4375F7-AF67-4192-B94A-EB11AB954BF7}
+		{D3C3126B-4871-49D1-891F-9DE00A2B61D5} = {06AAF4F3-6A96-4DE7-87A6-8B4E2C802831}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19478727-852A-4B00-A519-2A559CEEC326}
